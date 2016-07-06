@@ -3,8 +3,6 @@
 A step-by-step guide for setting up a linux server with [NodeJS](https://nodejs.org/en/), [Nginx](https://nginx.org/) and [Git hook listener](https://github.com/renancaldas/git-hook-listener).
 
 
----
-
 ##### Summary
 1. Creating the AWS EC2 instance
 2. Connecting to server and installing NodeJS
