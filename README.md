@@ -2,45 +2,59 @@
 
 A step-by-step guide for setting up a linux server with [NodeJS](https://nodejs.org/en/), [Nginx](https://nginx.org/) and [Git hook listener](https://github.com/renancaldas/git-hook-listener).
 
+
 ---
+
 ##### Summary
 1. Creating the AWS EC2 instance
 2. Connecting to server and installing NodeJS
 3. Nginx and configuration
 4. Git hook listener
 5. Author
+
 ---
 
-##### 1. Creating the AWS EC2 instance 
+#### 1. Creating the AWS EC2 instance 
 You should have an [AWS](aws.amazon.com) registration. They give a free year of VPS server! 😃 
 
 - Login into your AWS account and choose EC2 in AWS dashboard:
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/01.png)
 
 - Click in the "Launch Instance" button:
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/02.png)
 
+
 - Select **Ubuntu Server**
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/03.png)
 
 - Choose **"t2.micro"** tier, click on **"Review and Launch"** button
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/04.png)
 
 - Then click on **"Launch"** button, which will open a poup asking for a key pair creation. Choose **"Create a new key pair"**, name it, **download** it and then click on **"Launch instances"**.
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/05.png)
 
 - Finally, your server will be initialized! Obs.: Copy and paste the **"Public DNS"** or **"Public IP"** in a separated document for further instructions! 📝
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/06.png)
 
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/07.png)
 
 - Next, you should open the some ports in order to expose your server to external requests from the internet. Click on the link close to **"Security groups"**, from the previous picture. Then add the **inbound** request ports **80, 22 and 443**, clicking on **"Edit"** button,  as the follow image:
+
     ![](https://cdn.rawgit.com/renancaldas/aws-ec2-guide/master/img/08.png)
 
 - Now you are ready for connecting to your server! 👍
-	
 
-##### 2. Connecting to server and initializing it
+	
+---
+
+
+#### 2. Connecting to server and initializing it
 I will be using bash commands (Mac or Linux). For Windows, [check this out](https://msdn.microsoft.com/en-us/commandline/wsl/about). So I think you should be fine... Please give me a feedback on this.
 
 1. Open **terminal** and connect via ssh to your server. Obs.: here we need the ***"Public DNS"*** or ***"Public IP"*** and the **key pair file** (.pem) mentioned before.
@@ -84,7 +98,9 @@ I will be using bash commands (Mac or Linux). For Windows, [check this out](http
         // And exit using: CTRL + x, ENTER
     ```
 
-#### Nginx
+---
+
+#### 3. Nginx
 Here we will install Nginx, configure it to router external requests from port 80 (remember that we have open this port before?) to server's local port 3000, which could be a NodeJS application running in this port. We will setup a NodeJS application in next step.
 
 - First, install nginx:
@@ -118,14 +134,16 @@ Here we will install Nginx, configure it to router external requests from port 8
         $ sudo service nginx restart
     ```
 
-#### Git hook listener
+---
+
+#### 4. Git Hook Listener
 This is a project that I have done in order to use the continuous deployment concept that automatizes the process of uploading project files to multiple servers and environments. This is a daily used component in the companies that I have worked.
 
 **Please continue by reading the [step-by-step guide](https://github.com/renancaldas/git-hook-listener), like this one.**
 
 ---
 
-#### Author
+#### 5. Author
 
 Renan Caldas de Oliveira
 - Web: http://www.renancaldas.com
