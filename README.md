@@ -88,8 +88,20 @@ I will be using bash commands (Mac or Linux). For Windows, [check this out](http
         $ npm install nodemon -g
         $ sudo apt install git
     ```
+4. Store NPM path in user's profile file. This will keep the previous NPM changes.
+    ```
+        $ nano ~/.profile
+        
+        // Add these lines at the end: 
+        # set NPM path to user's home
+        npm config set prefix ~/npm
+        export PATH="$PATH:$HOME/npm/bin"
+        
+        // Save it using: CTRL + o, ENTER
+        // And exit using: CTRL + x, ENTER
+    ```
 
-4. Store your Git user credentials. This will prevent the login prompt when using [Git](https://git-scm.com/) commands.
+5. Store your Git user credentials. This will prevent the login prompt when using [Git](https://git-scm.com/) commands.
     ```
         $ nano ~/.netrc
         
